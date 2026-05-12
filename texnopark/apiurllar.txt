@@ -1,0 +1,11 @@
+http://127.0.0.1:8000/uz/api/v1/quotes/
+http://127.0.0.1:8000/uz/api/v1/about-company/
+http://127.0.0.1:8000/uz/api/v1/services/
+http://127.0.0.1:8000/uz/api/v1/service-sections/
+http://127.0.0.1:8000/uz/api/v1/detail-services/
+http://127.0.0.1:8000/uz/api/v1/news/
+http://127.0.0.1:8000/uz/api/v1/about-us/
+http://127.0.0.1:8000/uz/api/v1/team/
+http://127.0.0.1:8000/uz/api/v1/about-us-images/
+http://127.0.0.1:8000/uz/api/v1/history/
+http://127.0.0.1:8000/uz/api/v1/faqs/
