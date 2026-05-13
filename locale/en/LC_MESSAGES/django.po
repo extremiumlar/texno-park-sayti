@@ -1,0 +1,329 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-12 14:14+0500\n"
+"PO-Revision-Date: 2026-05-12 15:00+0500\n"
+"Last-Translator: Admin <admin@texnopark.com>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\config\settings.py:452
+msgid "Uzbek"
+msgstr "Uzbek"
+
+#: .\config\settings.py:453
+msgid "English"
+msgstr "English"
+
+#: .\config\settings.py:454
+msgid "Russian"
+msgstr "Russian"
+
+#: .\texnopark\forms.py:39 .\texnopark\forms.py:215 .\texnopark\forms.py:235
+msgid "Telefon raqami aniq 9 xonali raqamdan iborat bo'lishi kerak"
+msgstr "Phone number must consist of exactly 9 digits"
+
+#: .\texnopark\forms.py:45 .\texnopark\serializers.py:167
+msgid "Iqtibos matni 500 belgidan oshmasligi kerak"
+msgstr "Quote text must not exceed 500 characters"
+
+#: .\texnopark\forms.py:67 .\texnopark\forms.py:97 .\texnopark\forms.py:149
+#: .\texnopark\serializers.py:191 .\texnopark\serializers.py:221
+#: .\texnopark\serializers.py:256
+msgid "Sarlavha 100 belgidan oshmasligi kerak"
+msgstr "Title must not exceed 100 characters"
+
+#: .\texnopark\forms.py:92
+msgid "Avtomatik ravishda sarlavhadan generatsiya qilinadi"
+msgstr "Automatically generated from the title"
+
+#: .\texnopark\forms.py:108
+msgid "Slug generatsiya qilish uchun sarlavha kiritilishi kerak"
+msgstr "Title must be entered to generate slug"
+
+#: .\texnopark\forms.py:125 .\texnopark\serializers.py:208
+msgid "Qisqa matn 300 belgidan oshmasligi kerak"
+msgstr "Short text must not exceed 300 characters"
+
+#: .\texnopark\forms.py:184 .\texnopark\serializers.py:172
+#: .\texnopark\serializers.py:280 .\texnopark\serializers.py:293
+msgid "Ism familiya kamida 3 belgidan iborat bo'lishi kerak"
+msgstr "Full name must be at least 3 characters"
+
+#: .\texnopark\models.py:10 .\texnopark\models.py:132 .\texnopark\models.py:133
+msgid "Biz haqimizda"
+msgstr "About Us"
+
+#: .\texnopark\models.py:13 .\texnopark\models.py:151
+msgid "To'liq ism"
+msgstr "Full name"
+
+#: .\texnopark\models.py:14 .\texnopark\models.py:152
+msgid "Lavozim"
+msgstr "Position"
+
+#: .\texnopark\models.py:15 .\texnopark\models.py:52 .\texnopark\models.py:111
+#: .\texnopark\models.py:150 .\texnopark\models.py:165
+msgid "Rasm"
+msgstr "Image"
+
+#: .\texnopark\models.py:16 .\texnopark\models.py:36 .\texnopark\models.py:54
+#: .\texnopark\models.py:110 .\texnopark\models.py:124
+msgid "Matn"
+msgstr "Text"
+
+#: .\texnopark\models.py:21
+msgid "Iqtibos turi"
+msgstr "Quote type"
+
+#: .\texnopark\models.py:23 .\texnopark\models.py:39 .\texnopark\models.py:55
+#: .\texnopark\models.py:97 .\texnopark\models.py:112 .\texnopark\models.py:128
+#: .\texnopark\models.py:153 .\texnopark\models.py:166
+#: .\texnopark\models.py:180 .\texnopark\models.py:194
+#: .\texnopark\models.py:219 .\texnopark\models.py:235
+msgid "Yaratilgan vaqt"
+msgstr "Created at"
+
+#: .\texnopark\models.py:26
+msgid "Iqtibos"
+msgstr "Quote"
+
+#: .\texnopark\models.py:27
+msgid "Iqtiboslar"
+msgstr "Quotes"
+
+#: .\texnopark\models.py:35 .\texnopark\models.py:51 .\texnopark\models.py:72
+#: .\texnopark\models.py:89 .\texnopark\models.py:109 .\texnopark\models.py:178
+msgid "Sarlavha"
+msgstr "Title"
+
+#: .\texnopark\models.py:37
+msgid "Rasm 1"
+msgstr "Image 1"
+
+#: .\texnopark\models.py:38
+msgid "Rasm 2"
+msgstr "Image 2"
+
+#: .\texnopark\models.py:43 .\texnopark\models.py:44
+msgid "Kompaniya haqida"
+msgstr "About Company"
+
+#: .\texnopark\models.py:53
+msgid "Slug"
+msgstr "Slug"
+
+#: .\texnopark\models.py:59 .\texnopark\models.py:77 .\texnopark\models.py:95
+msgid "Asosiy xizmat"
+msgstr "Main service"
+
+#: .\texnopark\models.py:60
+msgid "Asosiy xizmatlar"
+msgstr "Main services"
+
+#: .\texnopark\models.py:81
+msgid "Xizmat bo'limi"
+msgstr "Service section"
+
+#: .\texnopark\models.py:82
+msgid "Xizmat bo'limlari"
+msgstr "Service sections"
+
+#: .\texnopark\models.py:90 .\texnopark\models.py:179
+msgid "Qisqa matn"
+msgstr "Short description"
+
+#: .\texnopark\models.py:101
+msgid "Batafsil xizmat"
+msgstr "Detailed service"
+
+#: .\texnopark\models.py:102
+msgid "Batafsil xizmatlar"
+msgstr "Detailed services"
+
+#: .\texnopark\models.py:116
+msgid "Yangilik"
+msgstr "News"
+
+#: .\texnopark\models.py:117
+msgid "Yangiliklar"
+msgstr "News"
+
+#: .\texnopark\models.py:125
+msgid "Talabalar soni"
+msgstr "Number of students"
+
+#: .\texnopark\models.py:126
+msgid "Yo'nalishlar soni"
+msgstr "Number of directions"
+
+#: .\texnopark\models.py:127
+msgid "Mutaxassislar soni"
+msgstr "Number of specialists"
+
+#: .\texnopark\models.py:137
+msgid "Faqat bitta Biz haqimizda obyekti yaratish mumkin!"
+msgstr "Only one About Us object can be created!"
+
+#: .\texnopark\models.py:157
+msgid "Jamoa a'zosi"
+msgstr "Team member"
+
+#: .\texnopark\models.py:158
+msgid "Jamoa a'zolari"
+msgstr "Team members"
+
+#: .\texnopark\models.py:170
+msgid "Biz haqimizda rasm"
+msgstr "About Us image"
+
+#: .\texnopark\models.py:171
+msgid "Biz haqimizda rasmlar"
+msgstr "About Us images"
+
+#: .\texnopark\models.py:184 .\texnopark\models.py:185
+msgid "Texnopark tarixi"
+msgstr "Technopark history"
+
+#: .\texnopark\models.py:192
+msgid "Savol"
+msgstr "Question"
+
+#: .\texnopark\models.py:193
+msgid "Javob"
+msgstr "Answer"
+
+#: .\texnopark\models.py:198
+msgid "Savol-javob"
+msgstr "FAQ"
+
+#: .\texnopark\models.py:199
+msgid "Savol-javoblar"
+msgstr "FAQs"
+
+#: .\texnopark\models.py:207
+msgid "8:00 - 10:00"
+msgstr "8:00 AM - 10:00 AM"
+
+#: .\texnopark\models.py:208
+msgid "10:00 - 12:00"
+msgstr "10:00 AM - 12:00 PM"
+
+#: .\texnopark\models.py:209
+msgid "14:00 - 16:00"
+msgstr "2:00 PM - 4:00 PM"
+
+#: .\texnopark\models.py:211 .\texnopark\models.py:231
+msgid "Ism"
+msgstr "Name"
+
+#: .\texnopark\models.py:212 .\texnopark\models.py:232
+msgid "Telefon"
+msgstr "Phone"
+
+#: .\texnopark\models.py:217
+msgid "Qulay vaqt"
+msgstr "Convenient time"
+
+#: .\texnopark\models.py:223
+msgid "Bog'lanish formasi"
+msgstr "Contact form"
+
+#: .\texnopark\models.py:224
+msgid "Bog'lanish formalari"
+msgstr "Contact forms"
+
+#: .\texnopark\models.py:233
+msgid "Kompaniya nomi"
+msgstr "Company name"
+
+#: .\texnopark\models.py:234
+msgid "Savol matni"
+msgstr "Question text"
+
+#: .\texnopark\models.py:236
+msgid "Tahrirlashga ruxsat"
+msgstr "Allow editing"
+
+#: .\texnopark\models.py:240
+msgid "Savol formasi"
+msgstr "Question form"
+
+#: .\texnopark\models.py:241
+msgid "Savol formalari"
+msgstr "Question forms"
+
+#: .\texnopark\serializers.py:25
+msgid ""
+"Telefon raqami 9 xonali raqamdan iborat bo'lishi kerak (masalan: 901234567)"
+msgstr "Phone number must consist of 9 digits (example: 901234567)"
+
+#: .\texnopark\serializers.py:177
+msgid "Lavozim kamida 3 belgidan iborat bo'lishi kerak"
+msgstr "Position must be at least 3 characters"
+
+#: .\texnopark\serializers.py:261 .\texnopark\serializers.py:303
+msgid "Matn 200 belgidan oshmasligi kerak"
+msgstr "Text must not exceed 200 characters"
+
+#: .\texnopark\serializers.py:298
+msgid "Kompaniya nomi kamida 2 belgidan iborat bo'lishi kerak"
+msgstr "Company name must be at least 2 characters"
+
+#: .\texnopark\utils.py:27
+msgid "Validatsiya xatosi"
+msgstr "Validation error"
+
+#: .\texnopark\utils.py:36
+msgid "Ma'lumotlar bazasi xatosi"
+msgstr "Database error"
+
+#: .\texnopark\utils.py:45
+msgid "So'ralgan ma'lumot topilmadi"
+msgstr "Requested information not found"
+
+#: .\texnopark\utils.py:54
+msgid "Sizga bu amalni bajarishga ruxsat yo'q"
+msgstr "You do not have permission to perform this action"
+
+#: .\texnopark\utils.py:63
+msgid "Autentifikatsiya talab qilinadi"
+msgstr "Authentication required"
+
+#: .\texnopark\utils.py:72
+msgid "Xatolik yuz berdi"
+msgstr "An error occurred"
+
+#: .\texnopark\utils.py:80
+msgid "Serverda kutilmagan xatolik yuz berdi"
+msgstr "An unexpected server error occurred"
+
+#: .\texnopark\views.py:89
+msgid "Faqat bitta iqtibos bo'lishi mumkin. Mavjud iqtibosni tahrirlang."
+msgstr "Only one quote can exist. Edit the existing quote."
+
+#: .\texnopark\views.py:109
+msgid "Hozircha iqtibos mavjud emas"
+msgstr "No quotes available at the moment"
+
+#: .\texnopark\views.py:264
+msgid "Ko'rishlar soni oshirildi"
+msgstr "View count increased"
+
+#: .\texnopark\views.py:392
+msgid "Xabaringiz muvaffaqiyatli yuborildi. Tez orada siz bilan bog'lanamiz."
+msgstr "Your message has been sent successfully. We will contact you shortly."
+
+#: .\texnopark\views.py:412
+msgid "Savolingiz muvaffaqiyatli yuborildi. Tez orada javob beramiz."
+msgstr "Your question has been sent successfully. We will answer shortly."

@@ -1,0 +1,10 @@
+# Guliston Technopark — Django API (texno-park-sayti-main)
+Django>=5.2,<6
+djangorestframework>=3.15
+django-cors-headers>=4.4
+django-filter>=24.3
+django-parler>=2.3
+django-ckeditor-5>=0.2.12
+django-jazzmin>=3.0
+Pillow>=10.0
+python-dotenv>=1.0.0
