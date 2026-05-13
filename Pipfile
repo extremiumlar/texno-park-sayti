@@ -18,6 +18,7 @@ redis = "*"
 python-decouple = "*"
 django-environ = "*"
 django-jazzmin = "*"
+django-parler = "*"
 
 [dev-packages]
 

@@ -3,6 +3,7 @@ from django_ckeditor_5.fields import CKEditor5Field
 from django.core.exceptions import ValidationError
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from parler.models import TranslatableModel, TranslatedFields
 
 
 class Quote(models.Model):
@@ -31,9 +32,11 @@ class Quote(models.Model):
         return self.body[:50]
 
 
-class AboutCompany(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Sarlavha"))
-    text = CKEditor5Field(verbose_name=_("Matn") , config_name='extends')
+class AboutCompany(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100, verbose_name=_("Sarlavha")),
+        text=CKEditor5Field(verbose_name=_("Matn"), config_name='extends'),
+    )
     image = models.ImageField(upload_to='images/about', verbose_name=_("Rasm 1"))
     image2 = models.ImageField(upload_to='images/about', verbose_name=_("Rasm 2"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaratilgan vaqt"))
@@ -44,14 +47,18 @@ class AboutCompany(models.Model):
         verbose_name_plural = _("Kompaniya haqida")
 
     def __str__(self):
-        return self.title
+        return self.safe_translation_getter('title', any_language=True)
 
 
-class MainServices(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Sarlavha"))
+# models.py
+
+class MainServices(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100, verbose_name=_("Sarlavha")),
+        body=CKEditor5Field(verbose_name=_("Matn"), config_name='extends'),
+    )
     image = models.ImageField(upload_to='images/services', verbose_name=_("Rasm"))
-    slug = models.SlugField(verbose_name=_("Slug"), unique=True)
-    body = CKEditor5Field(verbose_name=_("Matn"), config_name='extends')
+    slug = models.SlugField(verbose_name=_("Slug"), unique=True, blank=True)  # blank=True qo'shildi
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaratilgan vaqt"))
 
     class Meta:
@@ -61,15 +68,26 @@ class MainServices(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            # Hozirgi til yoki default tildagi title ni olish
+            default_title = self.safe_translation_getter('title', any_language=True)
+            if default_title:
+                self.slug = slugify(default_title)
+            else:
+                # Faqat inglizcha yoki boshqa til
+                for lang in ['uz', 'ru', 'en']:
+                    self.set_current_language(lang)
+                    if self.title:
+                        self.slug = slugify(self.title)
+                        break
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.title
+        return self.safe_translation_getter('title', any_language=True)
 
-
-class ServiceSections(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Sarlavha"))
+class ServiceSections(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100, verbose_name=_("Sarlavha")),
+    )
     sections = models.ForeignKey(
         MainServices,
         on_delete=models.CASCADE,
@@ -82,12 +100,14 @@ class ServiceSections(models.Model):
         verbose_name_plural = _("Xizmat bo'limlari")
 
     def __str__(self):
-        return self.title
+        return self.safe_translation_getter('title', any_language=True)
 
 
-class DetailServices(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Sarlavha"))
-    body_small = models.TextField(max_length=300, verbose_name=_("Qisqa matn"))
+class DetailServices(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100, verbose_name=_("Sarlavha")),
+        body_small=models.TextField(max_length=300, verbose_name=_("Qisqa matn")),
+    )
     detail = models.ForeignKey(
         MainServices,
         on_delete=models.CASCADE,
@@ -102,12 +122,14 @@ class DetailServices(models.Model):
         verbose_name_plural = _("Batafsil xizmatlar")
 
     def __str__(self):
-        return self.title
+        return self.safe_translation_getter('title', any_language=True)
 
 
-class News(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Sarlavha"))
-    body_small = CKEditor5Field(verbose_name=_("Matn") , config_name='extends')
+class News(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100, verbose_name=_("Sarlavha")),
+        body_small=CKEditor5Field(verbose_name=_("Matn"), config_name='extends'),
+    )
     img = models.ImageField(upload_to='images/news', verbose_name=_("Rasm"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaratilgan vaqt"))
 
@@ -117,7 +139,7 @@ class News(models.Model):
         verbose_name_plural = _("Yangiliklar")
 
     def __str__(self):
-        return self.title
+        return self.safe_translation_getter('title', any_language=True)
 
 
 class AboutUs(models.Model):
@@ -146,10 +168,12 @@ class AboutUs(models.Model):
         return self.body[:50]
 
 
-class Team(models.Model):
+class Team(TranslatableModel):
+    translations = TranslatedFields(
+        full_name=models.CharField(max_length=100, verbose_name=_("To'liq ism")),
+        position=models.CharField(max_length=100, verbose_name=_("Lavozim")),
+    )
     img = models.ImageField(upload_to='images/team', verbose_name=_("Rasm"))
-    full_name = models.CharField(max_length=100, verbose_name=_("To'liq ism"))
-    position = models.CharField(max_length=100, verbose_name=_("Lavozim"))
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaratilgan vaqt"))
 
     class Meta:
@@ -158,7 +182,7 @@ class Team(models.Model):
         verbose_name_plural = _("Jamoa a'zolari")
 
     def __str__(self):
-        return self.full_name
+        return self.safe_translation_getter('full_name', any_language=True)
 
 
 class Aboutusimages(models.Model):
@@ -174,9 +198,11 @@ class Aboutusimages(models.Model):
         return str(self.img)
 
 
-class HistoryTechnopark(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Sarlavha"))
-    body_small = models.TextField(max_length=200, verbose_name=_("Qisqa matn"))
+class HistoryTechnopark(TranslatableModel):
+    translations = TranslatedFields(
+        title=models.CharField(max_length=100, verbose_name=_("Sarlavha")),
+        body_small=models.TextField(max_length=200, verbose_name=_("Qisqa matn")),
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaratilgan vaqt"))
 
     class Meta:
@@ -185,12 +211,14 @@ class HistoryTechnopark(models.Model):
         verbose_name_plural = _("Texnopark tarixi")
 
     def __str__(self):
-        return self.title
+        return self.safe_translation_getter('title', any_language=True)
 
 
-class Questions(models.Model):
-    question = models.CharField(max_length=100, verbose_name=_("Savol"))
-    answer = models.TextField(max_length=200, verbose_name=_("Javob"))
+class Questions(TranslatableModel):
+    translations = TranslatedFields(
+        question=models.CharField(max_length=100, verbose_name=_("Savol")),
+        answer=models.TextField(max_length=200, verbose_name=_("Javob")),
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_("Yaratilgan vaqt"))
 
     class Meta:
@@ -199,7 +227,7 @@ class Questions(models.Model):
         verbose_name_plural = _("Savol-javoblar")
 
     def __str__(self):
-        return self.question
+        return self.safe_translation_getter('question', any_language=True)
 
 
 class ConnectionForm(models.Model):

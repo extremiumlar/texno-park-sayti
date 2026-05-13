@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',  # Agar token authentication ishlatsangiz
     'corsheaders',
+    'parler',
     # o'zim yaratgan applar
     'texnopark',
 
@@ -462,3 +463,17 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
 
+# parler settings
+
+PARLER_DEFAULT_LANGUAGE_CODE = 'uz'
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'uz',},
+        {'code': 'ru',},
+        {'code': 'en',},
+    ),
+    'default': {
+        'fallbacks': ['uz'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}

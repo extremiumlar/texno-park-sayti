@@ -128,6 +128,8 @@ class AboutCompanyViewSet(viewsets.ModelViewSet):
         return AboutCompanyReadSerializer
 
 
+# views.py
+
 class MainServicesViewSet(viewsets.ModelViewSet):
     """
     Main Services ViewSet
@@ -139,9 +141,10 @@ class MainServicesViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = MainServicesFilter
-    search_fields = ['title', 'body']
-    ordering_fields = ['title', 'created_at']
-    ordering = ['title']
+    # TO'G'RILANGAN - parler bilan ishlash uchun
+    search_fields = ['translations__title', 'translations__body']  # 'title' emas!
+    ordering_fields = ['translations__title', 'created_at']  # 'title' emas!
+    ordering = ['-created_at']  # yoki ['translations__title']
     pagination_class = StandardResultsSetPagination
 
     def get_serializer_class(self):
@@ -175,7 +178,6 @@ class MainServicesViewSet(viewsets.ModelViewSet):
         serializer = MainServicesReadSerializer(service, context={'request': request})
         return Response(serializer.data)
 
-
 class ServiceSectionsViewSet(viewsets.ModelViewSet):
     """
     Service Sections ViewSet
@@ -185,9 +187,10 @@ class ServiceSectionsViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = ServiceSectionsFilter
-    search_fields = ['title']
-    ordering_fields = ['title']
-    ordering = ['title']
+    # TO'G'RILANGAN - parler bilan ishlash uchun
+    search_fields = ['translations__title']  # 'title' emas!
+    ordering_fields = ['translations__title']  # 'title' emas!
+    ordering = ['translations__title']  # 'title' emas!
     pagination_class = StandardResultsSetPagination
 
     def get_serializer_class(self):
@@ -195,7 +198,6 @@ class ServiceSectionsViewSet(viewsets.ModelViewSet):
         if self.request.method in ['POST', 'PUT', 'PATCH']:
             return ServiceSectionsWriteSerializer
         return ServiceSectionsReadSerializer
-
 
 class DetailServicesViewSet(viewsets.ModelViewSet):
     """

@@ -7,20 +7,17 @@ from .models import (
 
 
 class MainServicesFilter(filters.FilterSet):
-    """Filter for Main Services"""
-    title = filters.CharFilter(lookup_expr='icontains')
+    title = filters.CharFilter(field_name='translations__title', lookup_expr='icontains')
     created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
     created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
 
     class Meta:
         model = MainServices
-        fields = ['title', 'slug']  # 'order' ni o'chirib tashladim!
+        fields = ['title', 'slug']
 
 
 class NewsFilter(filters.FilterSet):
-    """Filter for News"""
-    title = filters.CharFilter(lookup_expr='icontains')
-    body = filters.CharFilter(field_name='body', lookup_expr='icontains')
+    title = filters.CharFilter(field_name='translations__title', lookup_expr='icontains')
     created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
     created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
 
@@ -30,7 +27,6 @@ class NewsFilter(filters.FilterSet):
 
 
 class QuoteFilter(filters.FilterSet):
-    """Filter for Quotes"""
     quote_choices = filters.ChoiceFilter(choices=Quote.QUOTE_CHOICES)
     created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
     created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
@@ -41,42 +37,38 @@ class QuoteFilter(filters.FilterSet):
 
 
 class DetailServicesFilter(filters.FilterSet):
-    """Filter for Detail Services"""
-    title = filters.CharFilter(lookup_expr='icontains')
-    main_service = filters.NumberFilter(field_name='main_service__id')
+    title = filters.CharFilter(field_name='translations__title', lookup_expr='icontains')
+    detail = filters.NumberFilter(field_name='detail__id')
 
     class Meta:
         model = DetailServices
-        fields = ['title', 'main_service']
+        fields = ['title', 'detail']
 
 
 class ServiceSectionsFilter(filters.FilterSet):
-    """Filter for Service Sections"""
-    title = filters.CharFilter(lookup_expr='icontains')
-    main_service = filters.NumberFilter(field_name='main_service__id')
+    title = filters.CharFilter(field_name='translations__title', lookup_expr='icontains')
+    sections = filters.NumberFilter(field_name='sections__id')
 
     class Meta:
         model = ServiceSections
-        fields = ['title', 'main_service']
+        fields = ['title', 'sections']
 
 
 class ConnectionFormFilter(filters.FilterSet):
-    """Filter for Connection Forms (Admin only)"""
     created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
     created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
-    full_name = filters.CharFilter(lookup_expr='icontains')
+    name = filters.CharFilter(field_name='name', lookup_expr='icontains')
 
     class Meta:
         model = ConnectionForm
-        fields = ['full_name', 'created_at']
+        fields = ['name', 'created_at']
 
 
 class QuestionFormFilter(filters.FilterSet):
-    """Filter for Question Forms (Admin only)"""
     created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
     created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
-    full_name = filters.CharFilter(lookup_expr='icontains')
+    name = filters.CharFilter(field_name='name', lookup_expr='icontains')
 
     class Meta:
         model = QuestionForm
-        fields = ['full_name', 'created_at']
+        fields = ['name', 'created_at']
