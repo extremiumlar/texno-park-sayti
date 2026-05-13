@@ -208,9 +208,10 @@ class DetailServicesViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_class = DetailServicesFilter
-    search_fields = ['title', 'body_small']
-    ordering_fields = ['title', 'created_at']
-    ordering = ['title']
+    # TO'G'RILANGAN - parler bilan ishlash uchun
+    search_fields = ['translations__title', 'translations__body_small']  # 'title' emas!
+    ordering_fields = ['translations__title', 'created_at']  # 'title' emas!
+    ordering = ['-created_at']  # yoki ['translations__title']
     pagination_class = StandardResultsSetPagination
 
     def get_serializer_class(self):
