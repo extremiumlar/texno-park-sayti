@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+<<<<<<< HEAD
 try:
     from dotenv import load_dotenv
 
@@ -22,10 +23,13 @@ try:
 except ImportError:
     pass
 
+=======
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "django-insecure-**4mn+%dp68ke#rif=yagd*k&map2bd-buo^*waeq5j4o)a5vm",
@@ -39,6 +43,14 @@ ALLOWED_HOSTS = [
     for h in os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
     if h.strip()
 ]
+=======
+SECRET_KEY = 'django-insecure-**4mn+%dp68ke#rif=yagd*k&map2bd-buo^*waeq5j4o)a5vm'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = []
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 
 # Application definition
 
@@ -69,7 +81,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+<<<<<<< HEAD
     'texnopark.middleware.APIContentLanguageMiddleware',
+=======
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -239,6 +254,11 @@ CKEDITOR_5_FILE_UPLOAD_PERMISSION = "staff"  # Possible values: "staff", "authen
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
+<<<<<<< HEAD
+=======
+LANGUAGE_CODE = 'uz-uz'
+
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
@@ -260,6 +280,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
 
 _default_cors = (
     "http://localhost:5173,"
@@ -275,6 +296,13 @@ CORS_ALLOWED_ORIGINS = [
     o.strip()
     for o in os.environ.get("DJANGO_CORS_ALLOWED_ORIGINS", _default_cors).split(",")
     if o.strip()
+=======
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React default port
+    "http://localhost:3001",
+    "http://127.0.0.1:3000",
+    "https://yourdomain.com",  # Production domain
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 ]
 
 # Yoki barcha originlarga ruxsat berish (faqat development uchun):
@@ -294,13 +322,19 @@ CORS_ALLOW_METHODS = [
 CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
+<<<<<<< HEAD
     'accept-language',
+=======
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
     'authorization',
     'content-type',
     'dnt',
     'origin',
     'user-agent',
+<<<<<<< HEAD
     'x-app-language',
+=======
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
     'x-csrftoken',
     'x-requested-with',
 ]

@@ -3,7 +3,10 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework import viewsets, status, generics, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
+<<<<<<< HEAD
 from rest_framework.views import APIView
+=======
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import get_object_or_404
@@ -385,7 +388,10 @@ class ContactFormAPIView(generics.CreateAPIView):
     """
     serializer_class = ConnectionFormWriteSerializer
     permission_classes = [AllowAny]
+<<<<<<< HEAD
     authentication_classes = []
+=======
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -399,6 +405,7 @@ class ContactFormAPIView(generics.CreateAPIView):
         }, status=status.HTTP_201_CREATED)
 
 
+<<<<<<< HEAD
 class InquiryFormAPIView(APIView):
     """
     Savol / ariza formasi — faqat POST. GET ro'yxat yo'q (405).
@@ -437,6 +444,26 @@ class InquiryFormAPIView(APIView):
             },
             status=status.HTTP_405_METHOD_NOT_ALLOWED,
         )
+=======
+class InquiryFormAPIView(generics.CreateAPIView):
+    """
+    Inquiry Form API View
+    Handles question form submissions (no authentication required)
+    """
+    serializer_class = QuestionFormWriteSerializer
+    permission_classes = [AllowAny]
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+
+        return Response({
+            "success": True,
+            "message": _("Savolingiz muvaffaqiyatli yuborildi. Tez orada javob beramiz."),
+            "data": serializer.data
+        }, status=status.HTTP_201_CREATED)
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 
 
 class FAQsAPIView(generics.ListAPIView):

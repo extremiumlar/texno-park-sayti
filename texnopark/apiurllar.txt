@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Til prefiksisiz (SPA uchun):
 http://127.0.0.1:8000/api/v1/quotes/
 http://127.0.0.1:8000/api/v1/about-company/
@@ -18,3 +19,16 @@ http://127.0.0.1:8000/api/v1/services/slug/<slug>/
 
 # Admin (til prefiksi bilan, standart uz):
 http://127.0.0.1:8000/uz/admin/
+=======
+http://127.0.0.1:8000/uz/api/v1/quotes/
+http://127.0.0.1:8000/uz/api/v1/about-company/
+http://127.0.0.1:8000/uz/api/v1/services/
+http://127.0.0.1:8000/uz/api/v1/service-sections/
+http://127.0.0.1:8000/uz/api/v1/detail-services/
+http://127.0.0.1:8000/uz/api/v1/news/
+http://127.0.0.1:8000/uz/api/v1/about-us/
+http://127.0.0.1:8000/uz/api/v1/team/
+http://127.0.0.1:8000/uz/api/v1/about-us-images/
+http://127.0.0.1:8000/uz/api/v1/history/
+http://127.0.0.1:8000/uz/api/v1/faqs/
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87

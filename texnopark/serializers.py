@@ -350,6 +350,7 @@ class QuestionFormWriteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = QuestionForm
+<<<<<<< HEAD
         fields = ["name", "phone", "company_name", "body_small"]
 
     def validate_name(self, value):
@@ -373,6 +374,24 @@ class QuestionFormWriteSerializer(serializers.ModelSerializer):
         if len(s) > 200:
             raise serializers.ValidationError(_("Matn 200 belgidan oshmasligi kerak"))
         return s
+=======
+        fields = ['name', 'phone', 'company_name', 'body_small']
+
+    def validate_name(self, value):
+        if value and len(value.strip()) < 3:
+            raise serializers.ValidationError(_("Ism familiya kamida 3 belgidan iborat bo'lishi kerak"))
+        return value.strip()
+
+    def validate_company_name(self, value):
+        if value and len(value.strip()) < 2:
+            raise serializers.ValidationError(_("Kompaniya nomi kamida 2 belgidan iborat bo'lishi kerak"))
+        return value.strip()
+
+    def validate_body_small(self, value):
+        if value and len(value) > 200:
+            raise serializers.ValidationError(_("Matn 200 belgidan oshmasligi kerak"))
+        return value
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 
 
 # ============ LIST SERIALIZERS ============
@@ -402,7 +421,11 @@ class NewsListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
+<<<<<<< HEAD
         fields = ['id', 'title', 'body_small', 'img', 'created_at', 'language']
+=======
+        fields = ['id', 'title', 'img', 'created_at', 'language']
+>>>>>>> dce32d83e022d19e67892eec479827bf0aceed87
 
     def get_img(self, obj):
         request = self.context.get('request')
